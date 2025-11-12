@@ -773,6 +773,18 @@ require('lazy').setup({
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
+        javascript = { 'biome' },
+        typescript = { 'biome' },
+        javascriptreact = { 'biome' },
+        typescriptreact = { 'biome' },
+        json = { 'biome' },
+      },
+      formatters = {
+        biome = {
+          command = 'biome',
+          args = { 'format', '--stdin-file-path', '$FILENAME' },
+          stdin = true,
+        },
       },
     },
   },
