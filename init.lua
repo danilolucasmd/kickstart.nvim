@@ -911,14 +911,97 @@ require('lazy').setup({
   -- },
 
   {
-    'khoido2003/monokai-v2.nvim',
+    'loctvl842/monokai-pro.nvim',
     priority = 1000,
     config = function()
-      require('monokai-v2').setup {
-        transparent_background = true,
+      require('monokai-pro').setup {
         filter = 'pro',
+        background_clear = { 'float_win', 'telescope', 'which-key', 'neo-tree' },
+        devicons = true,
+
+        overridePalette = function()
+          return {
+            background = '#282c34', -- editor background
+            dark1 = '#21252B', -- sidebars / status
+            dark2 = '#383E4A', -- line highlight
+            text = '#abb2bf', -- default text
+            accent1 = '#e06c75', -- red (keywords, errors)
+            accent2 = '#61afef', -- blue (components, functions)
+            accent3 = '#e5c07b', -- yellow (strings, imports)
+            accent4 = '#98c379', -- green (constants)
+            accent5 = '#56b6c2', -- cyan (types, parameters)
+            accent6 = '#c678dd', -- purple (numbers, special)
+            dimmed1 = '#676f7d', -- comments
+            dimmed2 = '#495162', -- line numbers
+            dimmed3 = '#3B4048',
+            dimmed4 = '#292d35',
+            dimmed5 = '#21252B',
+          }
+        end,
+
+        override = function(c)
+          return {
+            -- General editor look
+            Normal = { bg = '#282c34', fg = '#abb2bf' },
+            CursorLine = { bg = '#383E4A' },
+            LineNr = { fg = '#495162' },
+            CursorLineNr = { fg = '#d7dae0' },
+            Comment = { fg = '#676f7d', italic = true },
+
+            -- Syntax colors
+            Keyword = { fg = '#e06c75', bold = true }, -- red
+            KeywordFunction = { fg = '#e06c75', bold = true },
+            Conditional = { fg = '#e06c75' },
+            Repeat = { fg = '#e06c75' },
+            Include = { fg = '#e06c75' },
+
+            -- Enhanced function & component color separation
+            Function = { fg = '#56b6c2', bold = true }, -- cyan (function declarations)
+            ['@function.call'] = { fg = '#61afef' }, -- blue (function calls)
+            ['@function.method.call'] = { fg = '#61afef' }, -- blue (method calls)
+
+            -- Component / type look
+            Type = { fg = '#61afef', bold = true }, -- blue (React components, TS types)
+            Identifier = { fg = '#56b6c2' }, -- teal identifiers
+            ['@type'] = { fg = '#61afef', bold = true }, -- JSX component tags
+
+            -- Constants and strings
+            Constant = { fg = '#98c379' },
+            String = { fg = '#e5c07b' },
+            Number = { fg = '#c678dd' },
+
+            -- Operators and misc
+            Operator = { fg = '#abb2bf' },
+
+            -- Menus and selections
+            Pmenu = { bg = '#21252B', fg = '#C5C5C5' },
+            PmenuSel = { bg = '#2c313a', fg = '#d7dae0' },
+            Visual = { bg = '#3E4451' },
+            Search = { bg = '#42557B' },
+
+            -- UI details
+            IndentBlanklineChar = { fg = '#3B4048' },
+
+            -- JSX / TSX tuning
+            ['@tag'] = { fg = '#61afef', bold = true }, -- component tags like <Action>
+            ['@tag.delimiter'] = { fg = '#abb2bf' },
+            ['@tag.attribute'] = { fg = '#98c379' }, -- props (onClick, className)
+            ['@property'] = { fg = '#abb2bf' },
+            ['@variable.parameter'] = { fg = '#d19a66', italic = true },
+
+            -- punctuation
+            ['@punctuation.bracket'] = { fg = '#abb2bf' },
+            ['@punctuation.delimiter'] = { fg = '#abb2bf' },
+
+            -- fallback
+            ['@variable'] = { fg = '#abb2bf' },
+            ['@string'] = { fg = '#e5c07b' },
+            ['@number'] = { fg = '#c678dd' },
+            ['@keyword.import'] = { fg = '#e06c75' },
+          }
+        end,
       }
-      vim.cmd 'colorscheme monokai-v2'
+      vim.cmd 'colorscheme monokai-pro'
     end,
   },
 
