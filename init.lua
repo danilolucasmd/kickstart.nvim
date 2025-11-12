@@ -925,34 +925,35 @@ require('lazy').setup({
     priority = 1000,
     config = function()
       require('monokai-pro').setup {
-        filter = 'pro',
+        filter = 'octagon',
         background_clear = { 'float_win', 'telescope', 'which-key', 'neo-tree' },
         devicons = true,
+        transparent_background = true,
 
-        overridePalette = function()
-          return {
-            background = '#282c34', -- editor background
-            dark1 = '#21252B', -- sidebars / status
-            dark2 = '#383E4A', -- line highlight
-            text = '#abb2bf', -- default text
-            accent1 = '#e06c75', -- red (keywords, errors)
-            accent2 = '#61afef', -- blue (components, functions)
-            accent3 = '#e5c07b', -- yellow (strings, imports)
-            accent4 = '#98c379', -- green (constants)
-            accent5 = '#56b6c2', -- cyan (types, parameters)
-            accent6 = '#c678dd', -- purple (numbers, special)
-            dimmed1 = '#676f7d', -- comments
-            dimmed2 = '#495162', -- line numbers
-            dimmed3 = '#3B4048',
-            dimmed4 = '#292d35',
-            dimmed5 = '#21252B',
-          }
-        end,
+        -- overridePalette = function()
+        --   return {
+        --     background = '#282c34', -- editor background
+        --     dark1 = '#21252B', -- sidebars / status
+        --     dark2 = '#383E4A', -- line highlight
+        --     text = '#abb2bf', -- default text
+        --     accent1 = '#e06c75', -- red (keywords, errors)
+        --     accent2 = '#61afef', -- blue (components, functions)
+        --     accent3 = '#e5c07b', -- yellow (strings, imports)
+        --     accent4 = '#98c379', -- green (constants)
+        --     accent5 = '#56b6c2', -- cyan (types, parameters)
+        --     accent6 = '#c678dd', -- purple (numbers, special)
+        --     dimmed1 = '#676f7d', -- comments
+        --     dimmed2 = '#495162', -- line numbers
+        --     dimmed3 = '#3B4048',
+        --     dimmed4 = '#292d35',
+        --     dimmed5 = '#21252B',
+        --   }
+        -- end,
 
         override = function(c)
           return {
             -- General editor look
-            Normal = { bg = '#282c34', fg = '#abb2bf' },
+            Normal = { fg = '#abb2bf' },
             CursorLine = { bg = '#383E4A' },
             LineNr = { fg = '#495162' },
             CursorLineNr = { fg = '#d7dae0' },
